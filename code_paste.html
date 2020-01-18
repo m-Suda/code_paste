@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="code_paste.css">
+</head>
+<body>
+    <div class="editor">
+        <div id="editor"></div>
+    </div>
+    <div class="options">
+        <div class="options__select-language">
+            <label class="options__select-language__label" for="options__select-language__select">Languages: </label>
+            <select id="options__select-language__select">
+                <option value="apache_conf">Apache Conf</option>
+                <option value="c_cpp">C and C++</option>
+                <option value="clojure">Clojure</option>
+                <option value="cobol">Cobol</option>
+                <option value="coffee">CoffeeScript</option>
+                <option value="csharp">C#</option>
+                <option value="css">CSS</option>
+                <option value="d">D</option>
+                <option value="dart">Dart</option>
+                <option value="diff">Diff</option>
+                <option value="dockerfile">Dockerfile</option>
+                <option value="ejs">EJS</option>
+                <option value="elixir">Elixir</option>
+                <option value="elm">Elm</option>
+                <option value="erlang">Erlang</option>
+                <option value="fortran">Fortran</option>
+                <option value="gitignore">Gitignore</option>
+                <option value="golang">Go</option>
+                <option value="graphqlschema">GraphQL Schema</option>
+                <option value="haskell">Haskell</option>
+                <option value="html">HTML</option>
+                <option value="java">Java</option>
+                <option value="json">JSON</option>
+                <option value="jsp">JSP</option>
+                <option value="jsx">JSX</option>
+                <option value="javascript" selected>JavaScript</option>
+                <option value="kotlin">Kotlin</option>
+                <option value="lisp">Lisp</option>
+                <option value="markdown">Markdown</option>
+                <option value="mysql">MySQL</option>
+                <option value="nginx">Nginx</option>
+                <option value="perl">Perl</option>
+                <option value="php">PHP</option>
+                <option value="pgsql">PostgreSQL</option>
+                <option value="python">Python</option>
+                <option value="ruby">Ruby</option>
+                <option value="rust">Rust</option>
+                <option value="sass">SASS</option>
+                <option value="scala">Scala</option>
+                <option value="scss">SCSS</option>
+                <option value="sql">SQL</option>
+                <option value="swift">Swift</option>
+                <option value="terraform">Terraform</option>
+                <option value="text">Text</option>
+                <option value="yaml">YAML</option>
+            </select>
+        </div>
+        <div class="options__select-theme">
+            <label class="options__select-theme__label" for="options__select-theme__select">Theme: </label>
+            <select id="options__select-theme__select">
+                <optgroup label="Right">
+                    <option value="chrome">Chrome</option>
+                    <option value="dawn">Dawn</option>
+                    <option value="eclipse">Eclipse</option>
+                    <option value="github">GitHub</option>
+                    <option value="solarized_light">Solarized Light</option>
+                    <option value="tomorrow">Tomorrow</option>
+                    <option value="xcode">XCode</option>
+                    <option value="kuroir">Kuroir</option>
+                </optgroup>
+                <optgroup label="Dark">
+                    <option value="dracula">Dracula</option>
+                    <option value="cobalt">Cobalt</option>
+                    <option value="gruvbox">Gruvbox</option>
+                    <option value="gob">Green on Black</option>
+                    <option value="idle_fingers">idle Fingers</option>
+                    <option value="monokai">Monokai</option>
+                    <option value="solarized_dark">Solarized Dark</option>
+                    <option value="terminal">Terminal</option>
+                </optgroup>
+            </select>
+        </div>
+        <div class="options__tab-size">
+            <label class="options__tab-size__label" for="options__tab-size__select">Tab Size: </label>
+            <select id="options__tab-size__select">
+                <option value="2">2</option>
+                <option value="4" selected>4</option>
+            </select>
+        </div>
+        <div class="options__copy-button">
+            <button>Copy!</button>
+        </div>
+    </div>
+    <script src="js/src/ace.js"></script>
+    <script src="code_paste.js"></script>
+</body>
+</html>

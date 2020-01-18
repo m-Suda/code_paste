@@ -1,0 +1,17 @@
+body {
+    width: 500px;
+    height: 500px;
+}
+
+.editor {
+    /* buttonとエディタが被ってしまうため、エディタの高さ分確保する。 */
+    height: 400px;
+}
+
+#editor {
+    position: absolute;
+    border: #7e7e7e 1px solid;
+    width: 500px;
+    height: 400px;
+}
+
