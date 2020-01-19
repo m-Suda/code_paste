@@ -75,8 +75,13 @@ function saveOptionsToLocalStorage({language, theme, tabSize}) {
 }
 
 function fetchOptionsFromLocalStorage() {
-    return new Promise(resolve => {
+    return new Promise((resolve, reject) => {
         chrome.storage.local.get(['language', 'theme', 'tabSize'],
-            ({language, theme, tabSize}) => resolve({language, theme, tabSize}));
+            ({language, theme, tabSize}) => {
+                if (!language) {
+                    return reject();
+                }
+                resolve({language, theme, tabSize})
+            });
     });
 }
