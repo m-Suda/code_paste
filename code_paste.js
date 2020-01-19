@@ -1,64 +1,82 @@
-/**
- * エディターのセッション
- */
 let thisEditor;
 
-/**
- * Editorの各オプションとコピーボタン
- * @type {Element}
- */
 const themeSelect = document.querySelector('#options__select-theme__select');
+themeSelect.addEventListener('change', ({ target }) => changeTheme(target.value));
 const languageSelect = document.querySelector('#options__select-language__select');
+languageSelect.addEventListener('change', ({ target }) => changeLanguagesMode(target.value));
 const tabSizeSelect = document.querySelector('#options__tab-size__select');
-const copyButton = document.querySelector('.options__copy-button');
+tabSizeSelect.addEventListener('change', ({target}) => changeTabSize(target.value));
+const copyButton = document.querySelector('.button-area__copy');
+copyButton.addEventListener('click', () => copyCode());
+const saveOptionsButton = document.querySelector('.button-area__save-options');
+saveOptionsButton.addEventListener('click',  async () => await saveOptions());
 
-/**
- * 初期表示時の処理
- */
-window.onload = () => {
+window.onload = async () => {
+    const savedOptions = await fetchOptionsFromLocalStorage().catch(() => null);
+    if (!savedOptions) {
+        initializeEditorIfNoSaveOptions();
+        return;
+    }
+    initializeEditorIfSavedOptions(savedOptions);
+};
+
+function initializeEditorIfNoSaveOptions() {
     thisEditor = ace.edit('editor', {
         mode: 'ace/mode/javascript',
         theme: 'ace/theme/chrome',
         useSoftTabs: false,
     });
-};
+}
 
-/**
- * 各オプションのイベント
- */
-themeSelect.addEventListener('change', ({ target }) => changeTheme(target.value));
-languageSelect.addEventListener('change', ({ target }) => changeLanguagesMode(target.value));
-tabSizeSelect.addEventListener('change', ({target}) => changeTabSize(target.value));
-copyButton.addEventListener('click', () => copyCode());
+function initializeEditorIfSavedOptions({language, theme, tabSize}) {
+    languageSelect.value = language;
+    themeSelect.value = theme;
+    tabSizeSelect.value = tabSize;
 
-/**
- * Editorのテーマを変更する。
- * @param {string} theme
- */
+    thisEditor = ace.edit('editor', {
+        mode: `ace/mode/${language}`,
+        theme: `ace/theme/${theme}`,
+        tabSize: Number(tabSize),
+        useSoftTabs: false,
+    });
+}
+
 function changeTheme(theme) {
     thisEditor.setTheme(`ace/theme/${theme}`);
 }
 
-/**
- * 言語モードを変更する。
- * @param {string} languageMode
- */
 function changeLanguagesMode(languageMode) {
     thisEditor.session.setMode(`ace/mode/${languageMode}`);
 }
 
-/**
- * タブサイズを変更する。
- * @param {string} size
- */
 function changeTabSize(size) {
     thisEditor.session.setTabSize(Number(size));
 }
 
-/**
- * コードをクリップボードにコピーする。
- */
 function copyCode() {
     thisEditor.selectAll();
     document.execCommand('copy');
+}
+
+async function saveOptions() {
+    const language = languageSelect.value;
+    const theme = themeSelect.value;
+    const tabSize = tabSizeSelect.value;
+
+    await saveOptionsToLocalStorage({language, theme, tabSize});
+}
+
+function saveOptionsToLocalStorage({language, theme, tabSize}) {
+    return new Promise(resolve => {
+        chrome.storage.local.set({
+            language, theme, tabSize
+        }, () => resolve());
+    });
+}
+
+function fetchOptionsFromLocalStorage() {
+    return new Promise(resolve => {
+        chrome.storage.local.get(['language', 'theme', 'tabSize'],
+            ({language, theme, tabSize}) => resolve({language, theme, tabSize}));
+    });
 }

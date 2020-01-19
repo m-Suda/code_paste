@@ -1,11 +1,12 @@
 body {
-    width: 500px;
+    width: 530px;
     height: 500px;
 }
 
 .editor {
     /* buttonとエディタが被ってしまうため、エディタの高さ分確保する。 */
     height: 400px;
+    padding: 15px;
 }
 
 #editor {
@@ -15,3 +16,15 @@ body {
     height: 400px;
 }
 
+.options {
+    padding: 0 15px;
+    display: flex;
+}
+
+.options > .options__select {
+    padding: 0 6px;
+}
+
+.button-area {
+    padding: 15px 15px 0;
+}

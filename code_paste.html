@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+<!--    <link rel="stylesheet" type="text/css" href="css/normalize.css">-->
+<!--    <link rel="stylesheet" type="text/css" href="css/skeleton.css">-->
     <link rel="stylesheet" type="text/css" href="code_paste.css">
 </head>
 <body>
@@ -10,8 +12,8 @@
         <div id="editor"></div>
     </div>
     <div class="options">
-        <div class="options__select-language">
-            <label class="options__select-language__label" for="options__select-language__select">Languages: </label>
+        <div class="options__select">
+            <label class="options__select__label" for="options__select-language__select">Languages: </label>
             <select id="options__select-language__select">
                 <option value="apache_conf">Apache Conf</option>
                 <option value="c_cpp">C and C++</option>
@@ -60,8 +62,8 @@
                 <option value="yaml">YAML</option>
             </select>
         </div>
-        <div class="options__select-theme">
-            <label class="options__select-theme__label" for="options__select-theme__select">Theme: </label>
+        <div class="options__select">
+            <label class="options__select__label" for="options__select-theme__select">Theme: </label>
             <select id="options__select-theme__select">
                 <optgroup label="Right">
                     <option value="chrome">Chrome</option>
@@ -85,16 +87,17 @@
                 </optgroup>
             </select>
         </div>
-        <div class="options__tab-size">
-            <label class="options__tab-size__label" for="options__tab-size__select">Tab Size: </label>
+        <div class="options__select">
+            <label class="options__select__label" for="options__tab-size__select">Tab Size: </label>
             <select id="options__tab-size__select">
                 <option value="2">2</option>
                 <option value="4" selected>4</option>
             </select>
         </div>
-        <div class="options__copy-button">
-            <button>Copy!</button>
-        </div>
+    </div>
+    <div class="button-area">
+        <button class="button-area__copy">Code Copy</button>
+        <button class="button-area__save-options">Save Options</button>
     </div>
     <script src="js/src/ace.js"></script>
     <script src="code_paste.js"></script>
