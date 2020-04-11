@@ -1,6 +1,6 @@
 {
   "manifest_version": 2,
-  "version": "1.0.0",
+  "version": "1.0.1",
   "name": "code paste",
   "short_name": "code paste",
   "description": "コードスニペットを編集、コピーできる簡易エディタです。技術ブログ等で貼り付けるコードのインデント調整等にどうぞ。",
