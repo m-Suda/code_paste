@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="style/index.css">
+</head>
+<body>
+    <div class="editor__container">
+        <div id="editor"></div>
+    </div>
+    <div class="options">
+        <div class="options__select">
+            <label class="options__select__label" for="options__select-language__select">Languages: </label>
+            <select id="options__select-language__select">
+                <option value="css">CSS</option>
+                <option value="diff">Diff</option>
+                <option value="dockerfile">Dockerfile</option>
+                <option value="html">HTML</option>
+                <option value="json">JSON</option>
+                <option value="javascript" selected>JavaScript</option>
+                <option value="markdown">Markdown</option>
+                <option value="mysql">MySQL</option>
+                <option value="nginx">Nginx</option>
+                <option value="php">PHP</option>
+                <option value="pgsql">PostgreSQL</option>
+                <option value="sass">SASS</option>
+                <option value="scss">SCSS</option>
+                <option value="sql">SQL</option>
+                <option value="terraform">Terraform</option>
+                <option value="text">Text</option>
+                <option value="typescript">TypeScript</option>
+                <option value="yaml">YAML</option>
+            </select>
+        </div>
+        <div class="options__select">
+            <label class="options__select__label" for="options__select-theme__select">Theme: </label>
+            <select id="options__select-theme__select">
+                <optgroup label="Right">
+                    <option value="chrome">Chrome</option>
+                    <option value="dawn">Dawn</option>
+                    <option value="eclipse">Eclipse</option>
+                    <option value="github">GitHub</option>
+                    <option value="solarized_light">Solarized Light</option>
+                    <option value="tomorrow">Tomorrow</option>
+                    <option value="xcode">XCode</option>
+                    <option value="kuroir">Kuroir</option>
+                </optgroup>
+                <optgroup label="Dark">
+                    <option value="dracula">Dracula</option>
+                    <option value="cobalt">Cobalt</option>
+                    <option value="gruvbox">Gruvbox</option>
+                    <option value="gob">Green on Black</option>
+                    <option value="idle_fingers">idle Fingers</option>
+                    <option value="monokai">Monokai</option>
+                    <option value="solarized_dark">Solarized Dark</option>
+                    <option value="terminal">Terminal</option>
+                </optgroup>
+            </select>
+        </div>
+        <div class="options__select">
+            <label class="options__select__label" for="options__tab-size__select">Tab Size: </label>
+            <select id="options__tab-size__select">
+                <option value="2">2</option>
+                <option value="4" selected>4</option>
+            </select>
+        </div>
+    </div>
+    <div class="button-area">
+        <button class="button-area__save-options">Save Options</button>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.43.2/ace.min.js"></script>
+    <script type="module" src="js/main.js"></script>
+    <script type="module" src="js/ui/theme-selector.js"></script>
+    <script type="module" src="js/ui/language-selector.js"></script>
+    <script type="module" src="js/ui/tab-size-selector.js"></script>
+    <script type="module" src="js/ui/save-options-button.js"></script>
+</body>
+</html>
